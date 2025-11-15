@@ -33,18 +33,59 @@
   </header>
   <main class="container">
     <section class="section">
-      <h1 data-translate="schedule.pageTitle">Расписание</h1>
-      <p class="small" data-translate="schedule.description">Здесь будет расписание занятий. Ниже — пример на неделю.</p>
-      <div class="card" style="margin-top:12px">
-        <div data-translate="schedule.slot1">Понедельник 19:00 - Групповая тренировка для начинающих</div>
+      <h1 data-translate="schedule.pageTitle">Расписание тренировок</h1>
+      <p class="small" data-translate="schedule.description">Выберите удобное время для тренировки. Свободные слоты можно забронировать.</p>
+      
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:32px" id="scheduleGrid">
+        <!-- Расписание загрузится автоматически -->
       </div>
-      <div class="card" style="margin-top:8px">
-        <div data-translate="schedule.slot2">Среда 19:00 - Силовая тренировка</div>
-      </div>
-      <div class="card" style="margin-top:8px">
-        <div data-translate="schedule.slot3">Пятница 18:00 - Онлайн занятие</div>
+
+      <div style="text-align:center;margin-top:40px;padding:24px;background:var(--card);border-radius:var(--radius)">
+        <p style="color:var(--muted);margin-bottom:16px">Не нашли подходящее время?</p>
+        <a href="contact.html" class="btn btn-primary">Связаться с нами</a>
       </div>
     </section>
+
+    <!-- Модальное окно бронирования -->
+    <div style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:none;justify-content:center;align-items:center;z-index:1000" id="bookingModal">
+      <div style="background:var(--card);padding:32px;border-radius:var(--radius);width:100%;max-width:400px;max-height:90vh;overflow-y:auto">
+        <h2 style="margin-bottom:24px">Записаться на тренировку</h2>
+        <form id="bookingForm">
+          <div style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:var(--radius);border-left:4px solid var(--accent1)">
+            <div style="font-size:14px;color:var(--muted)">Выбранное время:</div>
+            <div style="font-weight:bold;margin-top:4px" id="selectedTime"></div>
+          </div>
+          
+          <div style="margin-bottom:16px">
+            <label style="display:block;margin-bottom:8px;font-weight:500">Ваше имя *</label>
+            <input type="text" id="bookingName" required style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:var(--radius);background:var(--bg);color:var(--text);font-size:16px">
+          </div>
+          
+          <div style="margin-bottom:16px">
+            <label style="display:block;margin-bottom:8px;font-weight:500">Телефон *</label>
+            <input type="tel" id="bookingPhone" required placeholder="+49 123 456789" style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:var(--radius);background:var(--bg);color:var(--text);font-size:16px">
+          </div>
+          
+          <div style="margin-bottom:16px">
+            <label style="display:block;margin-bottom:8px;font-weight:500">Email (опционально)</label>
+            <input type="email" id="bookingEmail" placeholder="example@mail.com" style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:var(--radius);background:var(--bg);color:var(--text);font-size:16px">
+          </div>
+          
+          <div style="margin-bottom:16px">
+            <label style="display:block;margin-bottom:8px;font-weight:500">Комментарий (опционально)</label>
+            <textarea id="bookingNotes" rows="3" placeholder="Ваши пожелания или вопросы..." style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:var(--radius);background:var(--bg);color:var(--text);font-size:16px"></textarea>
+          </div>
+          
+          <div id="bookingError" style="color:#e53e3e;font-size:14px;margin-bottom:16px;display:none"></div>
+          <div id="bookingSuccess" style="color:var(--accent2);font-size:14px;margin-bottom:16px;display:none"></div>
+          
+          <div style="display:flex;gap:12px">
+            <button type="button" class="btn btn-secondary" style="flex:1" onclick="closeBookingModal()">Отмена</button>
+            <button type="submit" class="btn btn-primary" style="flex:1">Забронировать</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
 
   <footer class="container footer">
@@ -80,7 +121,152 @@
     </div>
   </footer>
 
-  <script src="js/translations.js?v=3"></script>
+  <script src="js/translations.js?v=2"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    let selectedSlot = null;
+
+    // Загрузка расписания из админ-панели
+    function loadSchedule() {
+      const schedule = JSON.parse(localStorage.getItem('schedule')) || { weeks: [] };
+      const grid = document.getElementById('scheduleGrid');
+      
+      if (schedule.weeks.length === 0 || !schedule.weeks[0].days.some(d => d.slots.length > 0)) {
+        grid.innerHTML = `
+          <div style="grid-column:1/-1;text-align:center;padding:40px;background:var(--card);border-radius:var(--radius)">
+            <p style="color:var(--muted);font-size:18px">Расписание пока не добавлено</p>
+            <p style="color:var(--muted);margin-top:8px">Свяжитесь с нами для записи</p>
+          </div>
+        `;
+        return;
+      }
+
+      // Берем первую неделю
+      const week = schedule.weeks[0];
+      
+      week.days.forEach((day, dayIndex) => {
+        if (day.slots.length === 0) return;
+
+        const dayCard = document.createElement('div');
+        dayCard.style.cssText = 'background:var(--card);border-radius:var(--radius);padding:24px';
+        
+        dayCard.innerHTML = `
+          <h3 style="color:var(--accent1);margin-bottom:20px;font-size:20px">${day.name}</h3>
+          ${day.slots.map(slot => {
+            const isBooked = slot.clientName && slot.clientName.trim() !== '';
+            return `
+              <div style="border:2px solid ${isBooked ? 'var(--muted)' : 'var(--accent2)'};border-radius:var(--radius);padding:16px;margin-bottom:12px;${isBooked ? 'opacity:0.6;background:var(--bg)' : 'cursor:pointer;transition:all 0.3s'}" 
+                   ${!isBooked ? `onclick="openBooking('${day.name}', '${slot.time}', ${dayIndex}, ${slot.id})"` : ''}
+                   ${!isBooked ? `onmouseover="this.style.borderColor='var(--accent1)';this.style.transform='translateY(-2px)'"` : ''}
+                   ${!isBooked ? `onmouseout="this.style.borderColor='var(--accent2)';this.style.transform='translateY(0)'"` : ''}>
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                  <div>
+                    <div style="font-size:20px;font-weight:bold;color:var(--text)">${slot.time}</div>
+                    <div style="font-size:14px;color:var(--muted);margin-top:4px">
+                      ${isBooked ? '❌ Занято' : '✅ Свободно'}
+                    </div>
+                  </div>
+                  ${!isBooked ? `
+                    <button class="btn btn-primary" style="padding:8px 16px" onclick="event.stopPropagation();openBooking('${day.name}', '${slot.time}', ${dayIndex}, ${slot.id})">
+                      Записаться
+                    </button>
+                  ` : ''}
+                </div>
+              </div>
+            `;
+          }).join('')}
+        `;
+        
+        grid.appendChild(dayCard);
+      });
+    }
+
+    function openBooking(dayName, time, dayIndex, slotId) {
+      selectedSlot = { dayName, time, dayIndex, slotId };
+      document.getElementById('selectedTime').textContent = `${dayName}, ${time}`;
+      document.getElementById('bookingModal').style.display = 'flex';
+      document.getElementById('bookingForm').reset();
+      document.getElementById('bookingError').style.display = 'none';
+      document.getElementById('bookingSuccess').style.display = 'none';
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').style.display = 'none';
+      selectedSlot = null;
+    }
+
+    // Обработка формы бронирования
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('bookingName').value;
+      const phone = document.getElementById('bookingPhone').value;
+      const email = document.getElementById('bookingEmail').value;
+      const notes = document.getElementById('bookingNotes').value;
+      const error = document.getElementById('bookingError');
+      const success = document.getElementById('bookingSuccess');
+
+      if (!selectedSlot) return;
+
+      // Загружаем расписание
+      const schedule = JSON.parse(localStorage.getItem('schedule')) || { weeks: [] };
+      
+      if (schedule.weeks.length === 0) {
+        error.textContent = 'Ошибка загрузки расписания';
+        error.style.display = 'block';
+        return;
+      }
+
+      // Находим нужный слот
+      const week = schedule.weeks[0];
+      const day = week.days[selectedSlot.dayIndex];
+      const slot = day.slots.find(s => s.id === selectedSlot.slotId);
+
+      if (!slot) {
+        error.textContent = 'Слот не найден';
+        error.style.display = 'block';
+        return;
+      }
+
+      // Проверяем, не занят ли слот
+      if (slot.clientName && slot.clientName.trim() !== '') {
+        error.textContent = 'Это время уже занято';
+        error.style.display = 'block';
+        return;
+      }
+
+      // Бронируем слот
+      slot.clientName = name;
+      slot.clientPhone = phone;
+      slot.clientEmail = email;
+      slot.notes = notes;
+      slot.bookedAt = new Date().toISOString();
+
+      // Сохраняем
+      localStorage.setItem('schedule', JSON.stringify(schedule));
+
+      // Показываем успех
+      success.textContent = '✅ Вы успешно записаны! Мы свяжемся с вами для подтверждения.';
+      success.style.display = 'block';
+      error.style.display = 'none';
+
+      // Закрываем через 2 секунды и обновляем
+      setTimeout(() => {
+        closeBookingModal();
+        loadSchedule();
+      }, 2000);
+    });
+
+    // Закрытие модального окна при клике вне его
+    document.getElementById('bookingModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeBookingModal();
+      }
+    });
+
+    // Загружаем при открытии страницы
+    loadSchedule();
+  </script>
   <script>
     // Функции для работы с localStorage
     function getStoredValue(key, defaultValue) {
