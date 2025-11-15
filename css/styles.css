@@ -749,7 +749,7 @@ img:hover {
 .faq-item {
   background: var(--card);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: 0;
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
@@ -770,6 +770,9 @@ img:hover {
   justify-content: space-between;
   align-items: center;
   user-select: none;
+  padding: 20px;
+  width: 100%;
+  cursor: pointer;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -782,6 +785,8 @@ img:hover {
   color: var(--accent1);
   transition: transform 0.3s ease;
   font-weight: bold;
+  flex-shrink: 0;
+  pointer-events: none;
 }
 
 .faq-item[open] summary::after {
@@ -789,8 +794,8 @@ img:hover {
 }
 
 .faq-item p {
-  margin-top: 16px;
-  padding-top: 16px;
+  margin: 0;
+  padding: 0 20px 20px 20px;
   border-top: 1px solid var(--accent2);
   animation: fadeIn 0.3s ease;
 }
