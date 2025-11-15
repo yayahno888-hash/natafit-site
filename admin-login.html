@@ -77,54 +77,20 @@
 
   <main class="container">
     <div class="login-form">
-      <div style="display:flex;gap:16px;margin-bottom:24px;border-bottom:2px solid var(--accent2)">
-        <button type="button" id="loginTab" class="btn" style="flex:1;border:none;border-bottom:3px solid var(--accent1)" onclick="showLogin()">Вход</button>
-        <button type="button" id="registerTab" class="btn" style="flex:1;border:none;border-bottom:3px solid transparent" onclick="showRegister()">Регистрация</button>
-      </div>
+      <h2 style="margin-bottom:24px">Вход для администратора</h2>
 
       <!-- Форма входа -->
-      <form id="loginForm" style="display:block">
-        <h2 style="margin-bottom:24px">Вход в систему</h2>
+      <form id="loginForm">
         <div class="form-group">
-          <label for="username">Имя пользователя</label>
-          <input type="text" id="username" name="username" required>
+          <label for="adminName">Ваше имя</label>
+          <input type="text" id="adminName" required placeholder="Например: Наталья">
         </div>
         <div class="form-group">
-          <label for="password">Пароль</label>
-          <input type="password" id="password" name="password" required>
+          <label for="adminKey">🔑 Ключ администратора</label>
+          <input type="password" id="adminKey" required placeholder="Введите секретный ключ">
         </div>
-        <div class="error-message" id="errorMessage">Неверные учетные данные</div>
+        <div class="error-message" id="errorMessage">Неверный ключ администратора</div>
         <button type="submit" class="btn btn-primary" style="width:100%">Войти</button>
-      </form>
-
-      <!-- Форма регистрации -->
-      <form id="registerForm" style="display:none">
-        <h2 style="margin-bottom:24px">Создать аккаунт</h2>
-        <div class="form-group">
-          <label for="regSecretKey">🔑 Секретный ключ</label>
-          <input type="password" id="regSecretKey" required placeholder="Ключ администратора">
-          <div style="font-size:12px;color:var(--muted);margin-top:4px">Получите ключ у владельца сайта</div>
-        </div>
-        <div class="form-group">
-          <label for="regName">Ваше имя</label>
-          <input type="text" id="regName" required>
-        </div>
-        <div class="form-group">
-          <label for="regUsername">Логин</label>
-          <input type="text" id="regUsername" required minlength="3">
-        </div>
-        <div class="form-group">
-          <label for="regPassword">Пароль</label>
-          <input type="password" id="regPassword" required minlength="6">
-          <div style="font-size:12px;color:var(--muted);margin-top:4px">Минимум 6 символов</div>
-        </div>
-        <div class="form-group">
-          <label for="regPasswordConfirm">Подтвердите пароль</label>
-          <input type="password" id="regPasswordConfirm" required>
-        </div>
-        <div class="error-message" id="registerError"></div>
-        <div style="color:var(--accent2);font-size:14px;margin-top:8px;display:none" id="registerSuccess">Регистрация успешна! Входите в систему...</div>
-        <button type="submit" class="btn btn-primary" style="width:100%">Зарегистрироваться</button>
       </form>
     </div>
   </main>
@@ -164,92 +130,24 @@
 
   <script src="js/translations.js?v=2"></script>
   <script>
-    // Переключение между формами
-    function showLogin() {
-      document.getElementById('loginForm').style.display = 'block';
-      document.getElementById('registerForm').style.display = 'none';
-      document.getElementById('loginTab').style.borderBottom = '3px solid var(--accent1)';
-      document.getElementById('registerTab').style.borderBottom = '3px solid transparent';
-    }
+    // Секретный ключ администратора
+    const ADMIN_KEY = 'natafit2025admin'; // Смените на свой ключ!
 
-    function showRegister() {
-      document.getElementById('loginForm').style.display = 'none';
-      document.getElementById('registerForm').style.display = 'block';
-      document.getElementById('loginTab').style.borderBottom = '3px solid transparent';
-      document.getElementById('registerTab').style.borderBottom = '3px solid var(--accent1)';
-    }
-
-    // Регистрация нового пользователя
-    document.getElementById('registerForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const secretKey = document.getElementById('regSecretKey').value;
-      const name = document.getElementById('regName').value;
-      const username = document.getElementById('regUsername').value;
-      const password = document.getElementById('regPassword').value;
-      const passwordConfirm = document.getElementById('regPasswordConfirm').value;
-      const error = document.getElementById('registerError');
-      const success = document.getElementById('registerSuccess');
-      
-      error.style.display = 'none';
-      success.style.display = 'none';
-      
-      // Проверка секретного ключа
-      const ADMIN_KEY = 'natafit2025admin'; // ВАЖНО: Смените этот ключ на свой!
-      if (secretKey !== ADMIN_KEY) {
-        error.textContent = 'Неверный секретный ключ';
-        error.style.display = 'block';
-        return;
-      }
-      
-      if (password !== passwordConfirm) {
-        error.textContent = 'Пароли не совпадают';
-        error.style.display = 'block';
-        return;
-      }
-      
-      let users = JSON.parse(localStorage.getItem('adminUsers')) || [];
-      
-      if (users.find(u => u.username === username)) {
-        error.textContent = 'Пользователь с таким логином уже существует';
-        error.style.display = 'block';
-        return;
-      }
-      
-      users.push({
-        id: Date.now(),
-        name: name,
-        username: username,
-        password: password,
-        createdAt: new Date().toISOString()
-      });
-      
-      localStorage.setItem('adminUsers', JSON.stringify(users));
-      
-      success.textContent = 'Регистрация успешна! Входите в систему...';
-      success.style.display = 'block';
-      
-      document.getElementById('registerForm').reset();
-      
-      setTimeout(() => {
-        showLogin();
-        document.getElementById('username').value = username;
-      }, 2000);
-    });
-
-    // Вход
+    // Вход по ключу
     document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
+      const name = document.getElementById('adminName').value;
+      const key = document.getElementById('adminKey').value;
       const error = document.getElementById('errorMessage');
       
-      const users = JSON.parse(localStorage.getItem('adminUsers')) || [];
-      const user = users.find(u => u.username === username && u.password === password);
-      
-      if (user) {
-        sessionStorage.setItem('authUser', JSON.stringify(user));
+      if (key === ADMIN_KEY) {
+        // Сохраняем данные администратора
+        const admin = {
+          name: name,
+          loginTime: new Date().toISOString()
+        };
+        sessionStorage.setItem('authUser', JSON.stringify(admin));
         window.location.href = 'admin-schedule.html';
       } else {
         error.classList.add('visible');
