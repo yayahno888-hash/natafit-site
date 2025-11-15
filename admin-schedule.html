@@ -138,7 +138,24 @@
       <button class="btn btn-primary" id="addWeekBtn">+ Добавить неделю</button>
     </div>
     
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0\">\n      <div style=\"background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid var(--accent1)\">\n        <div style=\"font-size:14px;color:var(--muted);margin-bottom:8px\">Всего тренировок</div>\n        <div style=\"font-size:32px;font-weight:bold;color:var(--accent1)\" id=\"totalSlots\">0</div>\n      </div>\n      <div style=\"background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid var(--accent2)\">\n        <div style=\"font-size:14px;color:var(--muted);margin-bottom:8px\">Забронировано</div>\n        <div style=\"font-size:32px;font-weight:bold;color:var(--accent2)\" id=\"bookedSlots\">0</div>\n      </div>\n      <div style=\"background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid #10b981\">\n        <div style=\"font-size:14px;color:var(--muted);margin-bottom:8px\">Свободно</div>\n        <div style=\"font-size:32px;font-weight:bold;color:#10b981\" id=\"freeSlots\">0</div>\n      </div>\n      <div style=\"background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid #f59e0b;cursor:pointer\" onclick=\"showNewBookings()\">\n        <div style=\"font-size:14px;color:var(--muted);margin-bottom:8px\">🔔 Новые записи</div>\n        <div style=\"font-size:32px;font-weight:bold;color:#f59e0b\" id=\"newBookings\">0</div>\n      </div>\n    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0">
+      <div style="background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid var(--accent1)">
+        <div style="font-size:14px;color:var(--muted);margin-bottom:8px">Всего тренировок</div>
+        <div style="font-size:32px;font-weight:bold;color:var(--accent1)" id="totalSlots">0</div>
+      </div>
+      <div style="background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid var(--accent2)">
+        <div style="font-size:14px;color:var(--muted);margin-bottom:8px">Забронировано</div>
+        <div style="font-size:32px;font-weight:bold;color:var(--accent2)" id="bookedSlots">0</div>
+      </div>
+      <div style="background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid #10b981">
+        <div style="font-size:14px;color:var(--muted);margin-bottom:8px">Свободно</div>
+        <div style="font-size:32px;font-weight:bold;color:#10b981" id="freeSlots">0</div>
+      </div>
+      <div style="background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid #f59e0b;cursor:pointer" onclick="showNewBookings()">
+        <div style="font-size:14px;color:var(--muted);margin-bottom:8px">🔔 Новые записи</div>
+        <div style="font-size:32px;font-weight:bold;color:#f59e0b" id="newBookings">0</div>
+      </div>
+    </div>
     
     <div class="schedule-grid" id="scheduleGrid">
       <!-- Расписание будет добавлено через JavaScript -->
