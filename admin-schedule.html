@@ -6,6 +6,10 @@
   <title>Управление расписанием — Natafit</title>
   <link rel="stylesheet" href="css/styles.css" />
   <style>
+    * {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    
     .schedule-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -108,10 +112,15 @@
 <body>
   <header class="container header">
     <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Natafit logo"/></a>
-    <nav class="nav">
+    <button class="hamburger" id="hamburger" aria-label="Меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav" id="nav">
       <div class="controls">
         <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
-          <span class="theme-toggle-text" data-translate="theme.dark">Тёмная</span>
+          <span class="theme-toggle-text">Тёмная</span>
         </button>
         <button id="logoutBtn" class="btn btn-secondary">Выйти</button>
       </div>
@@ -124,9 +133,24 @@
       <a href="admin-clients.html" style="padding:8px 16px;border-radius:var(--radius);text-decoration:none;color:var(--text);border:2px solid var(--accent2)">Клиенты</a>
     </nav>
 
-    <div style="display:flex;justify-content:space-between;align-items:center">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
       <h1>Управление расписанием</h1>
-      <button class="btn btn-primary" id="addWeekBtn">Добавить неделю</button>
+      <button class="btn btn-primary" id="addWeekBtn">+ Добавить неделю</button>
+    </div>
+    
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0">
+      <div style="background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid var(--accent1)">
+        <div style="font-size:14px;color:var(--muted);margin-bottom:8px">Всего тренировок</div>
+        <div style="font-size:32px;font-weight:bold;color:var(--accent1)" id="totalSlots">0</div>
+      </div>
+      <div style="background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid var(--accent2)">
+        <div style="font-size:14px;color:var(--muted);margin-bottom:8px">Забронировано</div>
+        <div style="font-size:32px;font-weight:bold;color:var(--accent2)" id="bookedSlots">0</div>
+      </div>
+      <div style="background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid #10b981">
+        <div style="font-size:14px;color:var(--muted);margin-bottom:8px">Свободно</div>
+        <div style="font-size:32px;font-weight:bold;color:#10b981" id="freeSlots">0</div>
+      </div>
     </div>
     
     <div class="schedule-grid" id="scheduleGrid">
@@ -264,8 +288,14 @@
       const grid = document.getElementById('scheduleGrid');
       grid.innerHTML = '';
 
+      let totalCount = 0;
+      let bookedCount = 0;
+
       schedule.weeks.forEach(week => {
         week.days.forEach((day, dayIndex) => {
+          totalCount += day.slots.length;
+          bookedCount += day.slots.filter(s => s.clientName).length;
+          
           const dayCard = document.createElement('div');
           dayCard.className = 'day-card';
           
@@ -295,6 +325,11 @@
           grid.appendChild(dayCard);
         });
       });
+
+      // Обновляем статистику
+      document.getElementById('totalSlots').textContent = totalCount;
+      document.getElementById('bookedSlots').textContent = bookedCount;
+      document.getElementById('freeSlots').textContent = totalCount - bookedCount;
     }
 
     // Обработчики событий
@@ -308,5 +343,6 @@
     checkAuth();
     renderSchedule();
   </script>
+  <script src="js/theme.js"></script>
 </body>
 </html>
