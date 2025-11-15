@@ -89,11 +89,6 @@ const translations = {
       light: "Светлая",
       dark: "Тёмная"
     },
-    share: {
-      title: "Поделиться",
-      description: "Расскажите друзьям о нашем фитнес-клубе",
-      label: "Поделиться:"
-    },
     faq: {
       title: "Часто задаваемые вопросы",
       q1: {
@@ -195,11 +190,6 @@ const translations = {
     theme: {
       light: "Light",
       dark: "Dark"
-    },
-    share: {
-      title: "Share",
-      description: "Tell your friends about our fitness club",
-      label: "Share:"
     },
     faq: {
       title: "Frequently Asked Questions",
@@ -310,11 +300,6 @@ const translations = {
     theme: {
       light: "Hell",
       dark: "Dunkel"
-    },
-    share: {
-      title: "Teilen",
-      description: "Erzählen Sie Ihren Freunden über unser Fitness-Studio",
-      label: "Teilen:"
     },
     faq: {
       title: "Häufig gestellte Fragen",
