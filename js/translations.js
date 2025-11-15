@@ -89,6 +89,20 @@ const translations = {
       light: "Светлая",
       dark: "Тёмная"
     },
+    contactForm: {
+      title: "Форма обратной связи",
+      subtitle: "Оставьте свои контакты, и я свяжусь с вами",
+      name: "Ваше имя",
+      phone: "Телефон",
+      email: "Email (опционально)",
+      message: "Сообщение",
+      submit: "Отправить",
+      successMessage: "✓ Сообщение отправлено! Я свяжусь с вами в ближайшее время.",
+      nameError: "Пожалуйста, введите ваше имя",
+      phoneError: "Пожалуйста, введите корректный номер телефона",
+      emailError: "Пожалуйста, введите корректный email",
+      messageError: "Пожалуйста, введите сообщение (минимум 10 символов)"
+    },
     faq: {
       title: "Часто задаваемые вопросы",
       q1: {
@@ -190,6 +204,20 @@ const translations = {
     theme: {
       light: "Light",
       dark: "Dark"
+    },
+    contactForm: {
+      title: "Contact Form",
+      subtitle: "Leave your contacts and I'll get back to you",
+      name: "Your name",
+      phone: "Phone",
+      email: "Email (optional)",
+      message: "Message",
+      submit: "Send",
+      successMessage: "✓ Message sent! I'll contact you soon.",
+      nameError: "Please enter your name",
+      phoneError: "Please enter a valid phone number",
+      emailError: "Please enter a valid email",
+      messageError: "Please enter a message (minimum 10 characters)"
     },
     faq: {
       title: "Frequently Asked Questions",
@@ -300,6 +328,20 @@ const translations = {
     theme: {
       light: "Hell",
       dark: "Dunkel"
+    },
+    contactForm: {
+      title: "Kontaktformular",
+      subtitle: "Hinterlassen Sie Ihre Kontaktdaten und ich melde mich bei Ihnen",
+      name: "Ihr Name",
+      phone: "Telefon",
+      email: "E-Mail (optional)",
+      message: "Nachricht",
+      submit: "Senden",
+      successMessage: "✓ Nachricht gesendet! Ich werde mich bald bei Ihnen melden.",
+      nameError: "Bitte geben Sie Ihren Namen ein",
+      phoneError: "Bitte geben Sie eine gültige Telefonnummer ein",
+      emailError: "Bitte geben Sie eine gültige E-Mail ein",
+      messageError: "Bitte geben Sie eine Nachricht ein (mindestens 10 Zeichen)"
     },
     faq: {
       title: "Häufig gestellte Fragen",

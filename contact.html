@@ -73,6 +73,45 @@
         </div>
       </div>
     </section>
+
+    <section class="section">
+      <h2 data-translate="contactForm.title">Форма обратной связи</h2>
+      <p class="small" style="text-align:center;margin-bottom:32px" data-translate="contactForm.subtitle">Оставьте свои контакты, и я свяжусь с вами</p>
+      
+      <div class="contact-form">
+        <div class="form-success" id="formSuccess">
+          <span data-translate="contactForm.successMessage">✓ Сообщение отправлено! Я свяжусь с вами в ближайшее время.</span>
+        </div>
+        
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="formName" data-translate="contactForm.name">Ваше имя</label>
+            <input type="text" id="formName" name="name" required>
+            <div class="error-message" id="nameError" data-translate="contactForm.nameError">Пожалуйста, введите ваше имя</div>
+          </div>
+
+          <div class="form-group">
+            <label for="formPhone" data-translate="contactForm.phone">Телефон</label>
+            <input type="tel" id="formPhone" name="phone" required placeholder="+49 XXX XXXXXXX">
+            <div class="error-message" id="phoneError" data-translate="contactForm.phoneError">Пожалуйста, введите корректный номер телефона</div>
+          </div>
+
+          <div class="form-group">
+            <label for="formEmail" data-translate="contactForm.email">Email (опционально)</label>
+            <input type="email" id="formEmail" name="email" placeholder="example@email.com">
+            <div class="error-message" id="emailError" data-translate="contactForm.emailError">Пожалуйста, введите корректный email</div>
+          </div>
+
+          <div class="form-group">
+            <label for="formMessage" data-translate="contactForm.message">Сообщение</label>
+            <textarea id="formMessage" name="message" required></textarea>
+            <div class="error-message" id="messageError" data-translate="contactForm.messageError">Пожалуйста, введите сообщение</div>
+          </div>
+
+          <button type="submit" class="form-submit" data-translate="contactForm.submit">Отправить</button>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer class="container footer">
@@ -110,5 +149,7 @@
 
   <script src="js/translations.js?v=2"></script>
   <script src="js/theme.js"></script>
+  <script src="js/scroll-progress.js"></script>
+  <script src="js/contact-form.js"></script>
 </body>
 </html>
