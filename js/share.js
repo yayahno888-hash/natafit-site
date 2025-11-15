@@ -28,10 +28,10 @@ const ShareButtons = {
     this.openShareWindow(`https://t.me/share/url?url=${url}&text=${text}`);
   },
 
-  shareInstagram() {
-    // Instagram doesn't have direct URL sharing, open profile or copy link
-    alert('Instagram не поддерживает прямой шеринг ссылок. Ссылка скопирована в буфер обмена!');
-    navigator.clipboard.writeText(this.url);
+  shareVK() {
+    const url = encodeURIComponent(this.url);
+    const title = encodeURIComponent(this.title);
+    this.openShareWindow(`https://vk.com/share.php?url=${url}&title=${title}`);
   },
 
   shareFacebook() {
