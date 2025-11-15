@@ -88,6 +88,29 @@ const translations = {
     theme: {
       light: "Светлая",
       dark: "Тёмная"
+    },
+    faq: {
+      title: "Часто задаваемые вопросы",
+      q1: {
+        question: "Нужна ли специальная спортивная форма?",
+        answer: "Нет, подойдет любая удобная одежда для занятий спортом. Главное - чтобы вам было комфортно двигаться."
+      },
+      q2: {
+        question: "Подходит ли для начинающих?",
+        answer: "Да! Все программы адаптированы под любой уровень подготовки. Начнем с базовых упражнений и постепенно увеличим нагрузку."
+      },
+      q3: {
+        question: "Как проходит первая тренировка?",
+        answer: "На первом занятии обсудим ваши цели, проверим уровень подготовки и составим индивидуальный план тренировок."
+      },
+      q4: {
+        question: "Можно ли отменить или перенести тренировку?",
+        answer: "Да, просто сообщите заранее (минимум за 24 часа) через WhatsApp, Telegram или по телефону."
+      },
+      q5: {
+        question: "Сколько длится одна тренировка?",
+        answer: "Обычно 60 минут. Групповые занятия - 60-75 минут. Онлайн-консультации - 30-45 минут."
+      }
     }
   },
   en: {
@@ -167,6 +190,29 @@ const translations = {
     theme: {
       light: "Light",
       dark: "Dark"
+    },
+    faq: {
+      title: "Frequently Asked Questions",
+      q1: {
+        question: "Do I need special sports clothing?",
+        answer: "No, any comfortable clothing for sports will do. The main thing is that you feel comfortable moving."
+      },
+      q2: {
+        question: "Is it suitable for beginners?",
+        answer: "Yes! All programs are adapted to any fitness level. We'll start with basic exercises and gradually increase the load."
+      },
+      q3: {
+        question: "How does the first training session go?",
+        answer: "In the first session, we'll discuss your goals, check your fitness level, and create an individual training plan."
+      },
+      q4: {
+        question: "Can I cancel or reschedule a training session?",
+        answer: "Yes, just let me know in advance (at least 24 hours) via WhatsApp, Telegram, or phone."
+      },
+      q5: {
+        question: "How long does one training session last?",
+        answer: "Usually 60 minutes. Group sessions - 60-75 minutes. Online consultations - 30-45 minutes."
+      }
     }
   },
   de: {
@@ -254,6 +300,29 @@ const translations = {
     theme: {
       light: "Hell",
       dark: "Dunkel"
+    },
+    faq: {
+      title: "Häufig gestellte Fragen",
+      q1: {
+        question: "Brauche ich spezielle Sportkleidung?",
+        answer: "Nein, jede bequeme Sportkleidung ist geeignet. Hauptsache, Sie fühlen sich beim Bewegen wohl."
+      },
+      q2: {
+        question: "Ist es für Anfänger geeignet?",
+        answer: "Ja! Alle Programme sind an jedes Fitnessniveau angepasst. Wir beginnen mit grundlegenden Übungen und steigern die Belastung allmählich."
+      },
+      q3: {
+        question: "Wie läuft die erste Trainingseinheit ab?",
+        answer: "In der ersten Sitzung besprechen wir Ihre Ziele, überprüfen Ihr Fitnessniveau und erstellen einen individuellen Trainingsplan."
+      },
+      q4: {
+        question: "Kann ich eine Trainingseinheit absagen oder verschieben?",
+        answer: "Ja, informieren Sie mich einfach im Voraus (mindestens 24 Stunden) über WhatsApp, Telegram oder Telefon."
+      },
+      q5: {
+        question: "Wie lange dauert eine Trainingseinheit?",
+        answer: "Normalerweise 60 Minuten. Gruppensitzungen - 60-75 Minuten. Online-Beratungen - 30-45 Minuten."
+      }
     }
   }
 };
