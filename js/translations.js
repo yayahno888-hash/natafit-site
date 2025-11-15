@@ -59,7 +59,11 @@ const translations = {
       pageTitle: "Контакты",
       phone: "Тел: +7 (xxx) xxx-xx-xx",
       email: "Email: info@natafit.example",
-      address: "Адрес: ваш город, ул. Примерная, 12"
+      address: "Адрес: ваш город, ул. Примерная, 12",
+      heading: "Свяжитесь со мной",
+      phoneLabel: "Телефон",
+      messengersLabel: "Мессенджеры",
+      footer: "Жду ваших сообщений! Отвечу в течение 24 часов."
     },
     services: {
       title: "Услуги — Natafit",
@@ -119,7 +123,11 @@ const translations = {
       pageTitle: "Contact",
       phone: "Phone: +7 (xxx) xxx-xx-xx",
       email: "Email: info@natafit.example",
-      address: "Address: your city, Example st., 12"
+      address: "Address: your city, Example st., 12",
+      heading: "Get in touch",
+      phoneLabel: "Phone",
+      messengersLabel: "Messengers",
+      footer: "Looking forward to hearing from you! Will reply within 24 hours."
     },
     services: {
       title: "Services — Natafit",
@@ -202,7 +210,11 @@ const translations = {
       pageTitle: "Kontakt",
       phone: "Tel: +7 (xxx) xxx-xx-xx",
       email: "E-Mail: info@natafit.example",
-      address: "Adresse: Ihre Stadt, Beispielstraße 12"
+      address: "Adresse: Ihre Stadt, Beispielstraße 12",
+      heading: "Kontaktieren Sie mich",
+      phoneLabel: "Telefon",
+      messengersLabel: "Messenger",
+      footer: "Ich freue mich auf Ihre Nachricht! Antwort innerhalb von 24 Stunden."
     },
     services: {
       title: "Dienstleistungen — Natafit",
