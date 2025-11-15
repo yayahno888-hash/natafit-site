@@ -50,6 +50,7 @@ const translations = {
       title: "Расписание — Natafit",
       pageTitle: "Расписание",
       description: "Здесь будет расписание занятий. Ниже — пример на неделю.",
+      emptyMessage: "Расписание скоро появится",
       slot1: "Понедельник 19:00 - Групповая тренировка для начинающих",
       slot2: "Среда 19:00 - Силовая тренировка",
       slot3: "Пятница 18:00 - Онлайн занятие"
@@ -151,6 +152,7 @@ const translations = {
       title: "Schedule — Natafit",
       pageTitle: "Schedule",
       description: "Here will be the class schedule. Below is a weekly example.",
+      emptyMessage: "Schedule coming soon",
       slot1: "Monday 7:00 PM - Group training for beginners",
       slot2: "Wednesday 7:00 PM - Strength training",
       slot3: "Friday 6:00 PM - Online session"
@@ -275,6 +277,7 @@ const translations = {
       title: "Zeitplan — Natafit",
       pageTitle: "Zeitplan",
       description: "Hier wird der Kursplan angezeigt. Unten ein Wochenbeispiel.",
+      emptyMessage: "Zeitplan kommt bald",
       slot1: "Montag 19:00 - Gruppentraining fuer Anfaenger",
       slot2: "Mittwoch 19:00 - Krafttraining",
       slot3: "Freitag 18:00 - Online Kurs"

@@ -115,9 +115,11 @@
         grid.classList.remove('loading-hidden');
         
         if (schedule.weeks.length === 0 || !schedule.weeks[0].days.some(d => d.slots.length > 0)) {
+          const currentLang = localStorage.getItem('lang') || 'ru';
+          const emptyMessage = translations[currentLang].schedule.emptyMessage;
           grid.innerHTML = `
             <div style="grid-column:1/-1;text-align:center;padding:40px;background:var(--card);border-radius:var(--radius)">
-              <p style="color:var(--muted);font-size:18px">Расписание скоро появится</p>
+              <p style="color:var(--muted);font-size:18px">${emptyMessage}</p>
             </div>
           `;
           return;
