@@ -168,28 +168,28 @@
 
   <main class="container">
     <nav class="admin-nav">
-      <a href="admin-schedule.html">Расписание</a>
-      <a href="admin-clients.html" class="active">Клиенты</a>
+      <a href="admin-schedule.html" data-translate="admin.scheduleNav">Расписание</a>
+      <a href="admin-clients.html" class="active" data-translate="admin.clientsNav">Клиенты</a>
     </nav>
 
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:16px">
-      <h1>Управление клиентами</h1>
-      <button class="btn btn-primary" id="addClientBtn">+ Добавить клиента</button>
+      <h1 data-translate="admin.clientsTitle">Управление клиентами</h1>
+      <button class="btn btn-primary" id="addClientBtn"><span data-translate="admin.addClient">+ Добавить клиента</span></button>
     </div>
     
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px">
       <div style="background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid var(--accent1)">
-        <div style="font-size:14px;color:var(--muted);margin-bottom:8px">Всего клиентов</div>
+        <div style="font-size:14px;color:var(--muted);margin-bottom:8px" data-translate="admin.totalClients">Всего клиентов</div>
         <div style="font-size:32px;font-weight:bold;color:var(--accent1)" id="totalClients">0</div>
       </div>
       <div style="background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid var(--accent2)">
-        <div style="font-size:14px;color:var(--muted);margin-bottom:8px">Новых за месяц</div>
+        <div style="font-size:14px;color:var(--muted);margin-bottom:8px" data-translate="admin.newClients">Новых за месяц</div>
         <div style="font-size:32px;font-weight:bold;color:var(--accent2)" id="newClients">0</div>
       </div>
     </div>
     
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Поиск по имени, телефону или email...">
+      <input type="text" id="searchInput" data-translate-placeholder="admin.searchPlaceholder" placeholder="Поиск по имени, телефону или email...">
     </div>
 
     <div class="clients-grid" id="clientsGrid">

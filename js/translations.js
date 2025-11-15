@@ -51,6 +51,8 @@ const translations = {
       pageTitle: "Расписание",
       description: "Здесь будет расписание занятий. Ниже — пример на неделю.",
       emptyMessage: "Расписание скоро появится",
+      booked: "Занято",
+      available: "Свободно",
       slot1: "Понедельник 19:00 - Групповая тренировка для начинающих",
       slot2: "Среда 19:00 - Силовая тренировка",
       slot3: "Пятница 18:00 - Онлайн занятие"
@@ -104,6 +106,21 @@ const translations = {
       emailError: "Пожалуйста, введите корректный email",
       messageError: "Пожалуйста, введите сообщение (минимум 10 символов)"
     },
+    admin: {
+      loginTitle: "Вход для администратора",
+      yourName: "Ваше имя",
+      adminKey: "🔑 Ключ администратора",
+      enterKey: "Введите секретный ключ",
+      login: "Войти",
+      invalidKey: "Неверный ключ администратора",
+      scheduleNav: "Расписание",
+      clientsNav: "Клиенты",
+      clientsTitle: "Управление клиентами",
+      addClient: "Добавить клиента",
+      totalClients: "Всего клиентов",
+      newClients: "Новых за месяц",
+      searchPlaceholder: "Поиск по имени, телефону или email..."
+    },
     faq: {
       title: "Часто задаваемые вопросы",
       q1: {
@@ -153,6 +170,8 @@ const translations = {
       pageTitle: "Schedule",
       description: "Here will be the class schedule. Below is a weekly example.",
       emptyMessage: "Schedule coming soon",
+      booked: "Booked",
+      available: "Available",
       slot1: "Monday 7:00 PM - Group training for beginners",
       slot2: "Wednesday 7:00 PM - Strength training",
       slot3: "Friday 6:00 PM - Online session"
@@ -221,6 +240,21 @@ const translations = {
       emailError: "Please enter a valid email",
       messageError: "Please enter a message (minimum 10 characters)"
     },
+    admin: {
+      loginTitle: "Administrator Login",
+      yourName: "Your name",
+      adminKey: "🔑 Administrator Key",
+      enterKey: "Enter secret key",
+      login: "Login",
+      invalidKey: "Invalid administrator key",
+      scheduleNav: "Schedule",
+      clientsNav: "Clients",
+      clientsTitle: "Client Management",
+      addClient: "Add Client",
+      totalClients: "Total Clients",
+      newClients: "New This Month",
+      searchPlaceholder: "Search by name, phone or email..."
+    },
     faq: {
       title: "Frequently Asked Questions",
       q1: {
@@ -261,14 +295,6 @@ const translations = {
         signup: "Anmelden"
       }
     },
-    hero: {
-      title: "Fitness für alle",
-      subtitle: "Einfache Workouts, persönliche Betreuung und flexibler Zeitplan für alle Levels. Keine Überlastung — nur Ergebnisse und Selbstvertrauen.",
-      cta: {
-        services: "Leistungen ansehen",
-        signup: "Anmelden"
-      }
-    },
     welcome: {
       title: "Willkommen",
       text: "Kurse für alle Levels: sichere Übungen und Trainer-Unterstützung."
@@ -278,6 +304,8 @@ const translations = {
       pageTitle: "Zeitplan",
       description: "Hier wird der Kursplan angezeigt. Unten ein Wochenbeispiel.",
       emptyMessage: "Zeitplan kommt bald",
+      booked: "Belegt",
+      available: "Verfügbar",
       slot1: "Montag 19:00 - Gruppentraining fuer Anfaenger",
       slot2: "Mittwoch 19:00 - Krafttraining",
       slot3: "Freitag 18:00 - Online Kurs"
@@ -345,6 +373,21 @@ const translations = {
       phoneError: "Bitte geben Sie eine gültige Telefonnummer ein",
       emailError: "Bitte geben Sie eine gültige E-Mail ein",
       messageError: "Bitte geben Sie eine Nachricht ein (mindestens 10 Zeichen)"
+    },
+    admin: {
+      loginTitle: "Administrator-Anmeldung",
+      yourName: "Ihr Name",
+      adminKey: "🔑 Administrator-Schlüssel",
+      enterKey: "Geheimen Schlüssel eingeben",
+      login: "Anmelden",
+      invalidKey: "Ungültiger Administrator-Schlüssel",
+      scheduleNav: "Zeitplan",
+      clientsNav: "Kunden",
+      clientsTitle: "Kundenverwaltung",
+      addClient: "Kunde hinzufügen",
+      totalClients: "Kunden insgesamt",
+      newClients: "Neue diesen Monat",
+      searchPlaceholder: "Suche nach Name, Telefon oder E-Mail..."
     },
     faq: {
       title: "Häufig gestellte Fragen",

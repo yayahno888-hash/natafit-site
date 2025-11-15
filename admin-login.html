@@ -77,20 +77,20 @@
 
   <main class="container">
     <div class="login-form">
-      <h2 style="margin-bottom:24px">Вход для администратора</h2>
+      <h2 style="margin-bottom:24px" data-translate="admin.loginTitle">Вход для администратора</h2>
 
       <!-- Форма входа -->
       <form id="loginForm">
         <div class="form-group">
-          <label for="adminName">Ваше имя</label>
+          <label for="adminName" data-translate="admin.yourName">Ваше имя</label>
           <input type="text" id="adminName" required>
         </div>
         <div class="form-group">
-          <label for="adminKey">🔑 Ключ администратора</label>
-          <input type="password" id="adminKey" required placeholder="Введите секретный ключ">
+          <label for="adminKey" data-translate="admin.adminKey">🔑 Ключ администратора</label>
+          <input type="password" id="adminKey" required data-translate-placeholder="admin.enterKey" placeholder="Введите секретный ключ">
         </div>
-        <div class="error-message" id="errorMessage">Неверный ключ администратора</div>
-        <button type="submit" class="btn btn-primary" style="width:100%">Войти</button>
+        <div class="error-message" id="errorMessage" data-translate="admin.invalidKey">Неверный ключ администратора</div>
+        <button type="submit" class="btn btn-primary" style="width:100%" data-translate="admin.login">Войти</button>
       </form>
     </div>
   </main>

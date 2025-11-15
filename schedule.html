@@ -133,6 +133,10 @@
           const dayCard = document.createElement('div');
           dayCard.style.cssText = 'background:var(--card);border-radius:var(--radius);padding:24px';
           
+          const currentLang = localStorage.getItem('lang') || 'ru';
+          const bookedText = translations[currentLang].schedule.booked;
+          const availableText = translations[currentLang].schedule.available;
+          
           dayCard.innerHTML = `
             <h3 style="color:var(--accent1);margin-bottom:20px;font-size:20px">${day.name}</h3>
             ${day.slots.map(slot => {
@@ -143,7 +147,7 @@
                     <div>
                       <div style="font-size:20px;font-weight:bold;color:var(--text)">${slot.time}</div>
                       <div style="font-size:14px;color:var(--muted);margin-top:4px">
-                        ${isBooked ? '❌ Занято' : '✅ Свободно'}
+                        ${isBooked ? '❌ ' + bookedText : '✅ ' + availableText}
                       </div>
                     </div>
                   </div>

@@ -94,6 +94,16 @@
         }
       }
     });
+
+    // Update placeholders with data-translate-placeholder
+    document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+      const key = element.getAttribute('data-translate-placeholder');
+      const translation = getNestedTranslation(langData, key);
+      
+      if (translation && element.tagName === 'INPUT') {
+        element.setAttribute('placeholder', translation);
+      }
+    });
   }
 
   function getNestedTranslation(obj, path) {
