@@ -151,10 +151,6 @@
         <div style="font-size:14px;color:var(--muted);margin-bottom:8px">Свободно</div>
         <div style="font-size:32px;font-weight:bold;color:#10b981" id="freeSlots">0</div>
       </div>
-      <div style="background:var(--card);padding:20px;border-radius:var(--radius);border-left:4px solid #f59e0b;cursor:pointer" onclick="showNewBookings()">
-        <div style="font-size:14px;color:var(--muted);margin-bottom:8px">🔔 Новые записи</div>
-        <div style="font-size:32px;font-weight:bold;color:#f59e0b" id="newBookings">0</div>
-      </div>
     </div>
     
     <div class="schedule-grid" id="scheduleGrid">
@@ -334,52 +330,6 @@
       document.getElementById('totalSlots').textContent = totalCount;
       document.getElementById('bookedSlots').textContent = bookedCount;
       document.getElementById('freeSlots').textContent = totalCount - bookedCount;
-      
-      // Подсчитываем новые записи (за последний час)
-      const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
-      let newBookingsCount = 0;
-      schedule.weeks.forEach(week => {
-        week.days.forEach(day => {
-          day.slots.forEach(slot => {
-            if (slot.bookedAt && new Date(slot.bookedAt) > oneHourAgo) {
-              newBookingsCount++;
-            }
-          });
-        });
-      });
-      document.getElementById('newBookings').textContent = newBookingsCount;
-    }
-
-    function showNewBookings() {
-      const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
-      let newBookings = [];
-      
-      schedule.weeks.forEach(week => {
-        week.days.forEach((day, dayIndex) => {
-          day.slots.forEach(slot => {
-            if (slot.bookedAt && new Date(slot.bookedAt) > oneHourAgo) {
-              newBookings.push({
-                day: day.name,
-                time: slot.time,
-                client: slot.clientName,
-                phone: slot.clientPhone,
-                bookedAt: new Date(slot.bookedAt).toLocaleString('ru-RU')
-              });
-            }
-          });
-        });
-      });
-
-      if (newBookings.length === 0) {
-        alert('Нет новых записей за последний час');
-        return;
-      }
-
-      const message = 'Новые записи:\n\n' + newBookings.map(b => 
-        `${b.day}, ${b.time}\n👤 ${b.client}\n📞 ${b.phone}\n🕐 ${b.bookedAt}\n`
-      ).join('\n');
-      
-      alert(message);
     }
 
     // Обработчики событий
