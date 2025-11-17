@@ -35,46 +35,46 @@
   </header>
   <main class="container">
     <section class="section">
-      <h1 data-translate="contact.pageTitle">Контакты</h1>
+      <h1 data-translate="contact.pageTitle">Contact</h1>
       
-      <!-- Форма записи -->
+      <!-- Booking Form -->
       <div class="card" style="margin-top:24px;padding:32px">
         <h3 style="margin-bottom:24px;color:var(--accent1)">
-          📝 <span>Записаться на тренировку</span>
+          📝 <span>Sign Up for Training</span>
         </h3>
         
         <form id="booking-form" style="display:grid;gap:20px;max-width:600px">
           <div>
             <label for="name" style="display:block;margin-bottom:8px;color:var(--text);font-weight:500">
-              Имя *
+              Name *
             </label>
             <input 
               type="text" 
               id="name" 
               name="name" 
               required 
-              placeholder="Ваше имя"
+              placeholder="Your name"
               style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:8px;background:var(--bg);color:var(--text);font-size:16px"
             />
           </div>
           
           <div>
             <label for="phone" style="display:block;margin-bottom:8px;color:var(--text);font-weight:500">
-              Телефон *
+              Phone *
             </label>
             <input 
               type="tel" 
               id="phone" 
               name="phone" 
               required 
-              placeholder="+49 151 2961 4047"
+              placeholder="+1 234 567 8900"
               style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:8px;background:var(--bg);color:var(--text);font-size:16px"
             />
           </div>
           
           <div>
             <label for="training-type" style="display:block;margin-bottom:8px;color:var(--text);font-weight:500">
-              Тип тренировки *
+              Training Type *
             </label>
             <select 
               id="training-type" 
@@ -82,16 +82,16 @@
               required
               style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:8px;background:var(--bg);color:var(--text);font-size:16px"
             >
-              <option value="">Выберите тип</option>
-              <option value="personal">Персональная тренировка</option>
-              <option value="group">Групповое занятие</option>
-              <option value="online">Онлайн-программа</option>
+              <option value="">Select type</option>
+              <option value="personal">Personal Training</option>
+              <option value="group">Group Class</option>
+              <option value="online">Online Program</option>
             </select>
           </div>
           
           <div>
             <label for="preferred-date" style="display:block;margin-bottom:8px;color:var(--text);font-weight:500">
-              Желаемая дата
+              Preferred Date
             </label>
             <input 
               type="date" 
@@ -103,13 +103,13 @@
           
           <div>
             <label for="message" style="display:block;margin-bottom:8px;color:var(--text);font-weight:500">
-              Комментарий
+              Comment
             </label>
             <textarea 
               id="message" 
               name="message" 
               rows="4"
-              placeholder="Расскажите о своих целях..."
+              placeholder="Tell us about your goals..."
               style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:8px;background:var(--bg);color:var(--text);font-size:16px;resize:vertical"
             ></textarea>
           </div>
@@ -119,30 +119,30 @@
             class="btn btn-primary" 
             style="width:100%;padding:16px;font-size:18px"
           >
-            ✉️ Отправить заявку
+            ✉️ Send Request
           </button>
           
           <div id="form-message" style="display:none;padding:12px;border-radius:8px;text-align:center"></div>
         </form>
       </div>
       
-      <!-- Контактная информация -->
+      <!-- Contact Information -->
       <div class="card" style="margin-top:24px;padding:32px">
         <h3 style="margin-bottom:24px;color:var(--accent1)">
-          📞 <span data-translate="contact.heading">Свяжитесь со мной</span>
+          📞 <span data-translate="contact.heading">Get in Touch</span>
         </h3>
         
         <div style="display:grid;gap:20px">
           <div class="contact-item">
-            <h4 style="color:var(--text);margin-bottom:8px" data-translate="contact.phoneLabel">Телефон</h4>
+            <h4 style="color:var(--text);margin-bottom:8px" data-translate="contact.phoneLabel">Phone</h4>
             <p style="color:var(--accent1);font-size:18px;font-weight:600">
               +XX XXX XXX XXXX
             </p>
-            <p class="small" style="color:var(--muted);margin-top:8px;">Это демо-версия сайта</p>
+            <p class="small" style="color:var(--muted);margin-top:8px;">This is a demo version</p>
           </div>
           
           <div class="contact-item">
-            <h4 style="color:var(--text);margin-bottom:12px" data-translate="contact.messengersLabel">Мессенджеры</h4>
+            <h4 style="color:var(--text);margin-bottom:12px" data-translate="contact.messengersLabel">Messengers</h4>
             <div style="display:flex;gap:12px;flex-wrap:wrap">
               <button class="btn btn-primary" disabled style="opacity:0.5;cursor:not-allowed;">
                 WhatsApp
@@ -154,7 +154,7 @@
                 Instagram
               </button>
             </div>
-            <p class="small" style="color:var(--muted);margin-top:16px;">📝 В рабочей версии здесь будут активные ссылки</p>
+            <p class="small" style="color:var(--muted);margin-top:16px;">📝 Working version will have active links here</p>
           </div>
         </div>
         
