@@ -37,6 +37,96 @@
     <section class="section">
       <h1 data-translate="contact.pageTitle">Контакты</h1>
       
+      <!-- Форма записи -->
+      <div class="card" style="margin-top:24px;padding:32px">
+        <h3 style="margin-bottom:24px;color:var(--accent1)">
+          📝 <span>Записаться на тренировку</span>
+        </h3>
+        
+        <form id="booking-form" style="display:grid;gap:20px;max-width:600px">
+          <div>
+            <label for="name" style="display:block;margin-bottom:8px;color:var(--text);font-weight:500">
+              Имя *
+            </label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              placeholder="Ваше имя"
+              style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:8px;background:var(--bg);color:var(--text);font-size:16px"
+            />
+          </div>
+          
+          <div>
+            <label for="phone" style="display:block;margin-bottom:8px;color:var(--text);font-weight:500">
+              Телефон *
+            </label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              required 
+              placeholder="+49 151 2961 4047"
+              style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:8px;background:var(--bg);color:var(--text);font-size:16px"
+            />
+          </div>
+          
+          <div>
+            <label for="training-type" style="display:block;margin-bottom:8px;color:var(--text);font-weight:500">
+              Тип тренировки *
+            </label>
+            <select 
+              id="training-type" 
+              name="training-type" 
+              required
+              style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:8px;background:var(--bg);color:var(--text);font-size:16px"
+            >
+              <option value="">Выберите тип</option>
+              <option value="personal">Персональная тренировка</option>
+              <option value="group">Групповое занятие</option>
+              <option value="online">Онлайн-программа</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="preferred-date" style="display:block;margin-bottom:8px;color:var(--text);font-weight:500">
+              Желаемая дата
+            </label>
+            <input 
+              type="date" 
+              id="preferred-date" 
+              name="preferred-date"
+              style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:8px;background:var(--bg);color:var(--text);font-size:16px"
+            />
+          </div>
+          
+          <div>
+            <label for="message" style="display:block;margin-bottom:8px;color:var(--text);font-weight:500">
+              Комментарий
+            </label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="4"
+              placeholder="Расскажите о своих целях..."
+              style="width:100%;padding:12px;border:2px solid var(--accent2);border-radius:8px;background:var(--bg);color:var(--text);font-size:16px;resize:vertical"
+            ></textarea>
+          </div>
+          
+          <button 
+            type="submit" 
+            class="btn btn-primary" 
+            style="width:100%;padding:16px;font-size:18px"
+          >
+            ✉️ Отправить заявку
+          </button>
+          
+          <div id="form-message" style="display:none;padding:12px;border-radius:8px;text-align:center"></div>
+        </form>
+      </div>
+      
+      <!-- Контактная информация -->
       <div class="card" style="margin-top:24px;padding:32px">
         <h3 style="margin-bottom:24px;color:var(--accent1)">
           📞 <span data-translate="contact.heading">Свяжитесь со мной</span>
@@ -111,5 +201,6 @@
   <script src="js/translations.js?v=2"></script>
   <script src="js/theme.js"></script>
   <script src="js/scroll-progress.js"></script>
+  <script src="js/booking-form.js"></script>
 </body>
 </html>
