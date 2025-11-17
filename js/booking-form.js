@@ -1,6 +1,6 @@
 // Telegram Bot Configuration
-const TELEGRAM_BOT_TOKEN = '8449956925:AAGzMMLs60diCYjShkaO_NEYjvpnnz9Jaoo'; // Токен бота
-const TELEGRAM_CHAT_ID = '6021336894';     // ID чата (Kiruha JeTon)
+const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE'; // Токен бота
+const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID_HERE';     // ID чата
 
 // Обработчик отправки формы
 document.getElementById('booking-form').addEventListener('submit', async function(e) {
