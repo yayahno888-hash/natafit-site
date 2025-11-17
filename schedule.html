@@ -1,42 +1,42 @@
-<!doctype html>
-<html lang="ru">
+﻿<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title data-translate="schedule.title">Расписание — Natafit</title>
-  <meta name="description" content="Актуальное расписание тренировок Natafit. Выберите удобное время и запишитесь прямо сейчас!">
+  <title data-translate="schedule.title">Р Р°СЃРїРёСЃР°РЅРёРµ вЂ” Natafit</title>
+  <meta name="description" content="РђРєС‚СѓР°Р»СЊРЅРѕРµ СЂР°СЃРїРёСЃР°РЅРёРµ С‚СЂРµРЅРёСЂРѕРІРѕРє Natafit. Р’С‹Р±РµСЂРёС‚Рµ СѓРґРѕР±РЅРѕРµ РІСЂРµРјСЏ Рё Р·Р°РїРёС€РёС‚РµСЃСЊ РїСЂСЏРјРѕ СЃРµР№С‡Р°СЃ!">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <header class="container header">
     <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Natafit logo"/></a>
-    <button class="hamburger" id="hamburger" aria-label="Открыть меню">
+    <button class="hamburger" id="hamburger" aria-label="РћС‚РєСЂС‹С‚СЊ РјРµРЅСЋ">
       <span></span>
       <span></span>
       <span></span>
     </button>
     <nav class="nav" id="nav">
-      <a href="index.html" data-translate="nav.home">Главная</a>
-      <a href="services.html" data-translate="nav.services">Услуги</a>
-      <a href="schedule.html" data-translate="nav.schedule">Расписание</a>
-      <a href="contact.html" data-translate="nav.contacts">Контакты</a>
+      <a href="index.html" data-translate="nav.home">Р“Р»Р°РІРЅР°СЏ</a>
+      <a href="services.html" data-translate="nav.services">РЈСЃР»СѓРіРё</a>
+      <a href="schedule.html" data-translate="nav.schedule">Р Р°СЃРїРёСЃР°РЅРёРµ</a>
+      <a href="contact.html" data-translate="nav.contacts">РљРѕРЅС‚Р°РєС‚С‹</a>
       <div class="controls">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
-          <span class="theme-toggle-text" data-translate="theme.dark">Тёмная</span>
+        <button id="theme-toggle" class="theme-toggle" aria-label="РџРµСЂРµРєР»СЋС‡РёС‚СЊ С‚РµРјСѓ">
+          <span class="theme-toggle-text" data-translate="theme.dark">РўС‘РјРЅР°СЏ</span>
         </button>
-        <select id="lang-select" class="lang-select" aria-label="Выбрать язык">
-          <option value="ru">RU</option>
+        <select id="lang-select" class="lang-select" aria-label="Р’С‹Р±СЂР°С‚СЊ СЏР·С‹Рє">
           <option value="en">EN</option>
-          <option value="de">DE</option>
+          <option value="en">EN</option>
+          <option value="de">DE</option><option value="ru">RU</option>
         </select>
       </div>
     </nav>
   </header>
   <main class="container">
     <section class="section">
-      <h1 data-translate="schedule.pageTitle">Расписание тренировок</h1>
-      <p class="small" data-translate="schedule.description">Выберите удобное время и свяжитесь со мной для записи</p>
+      <h1 data-translate="schedule.pageTitle">Р Р°СЃРїРёСЃР°РЅРёРµ С‚СЂРµРЅРёСЂРѕРІРѕРє</h1>
+      <p class="small" data-translate="schedule.description">Р’С‹Р±РµСЂРёС‚Рµ СѓРґРѕР±РЅРѕРµ РІСЂРµРјСЏ Рё СЃРІСЏР¶РёС‚РµСЃСЊ СЃРѕ РјРЅРѕР№ РґР»СЏ Р·Р°РїРёСЃРё</p>
       
       <!-- Skeleton Loading -->
       <div id="skeletonLoading" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:32px">
@@ -62,7 +62,7 @@
       
       <!-- Actual Schedule Grid -->
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:32px" id="scheduleGrid" class="loading-hidden">
-        <!-- Расписание загрузится автоматически -->
+        <!-- Р Р°СЃРїРёСЃР°РЅРёРµ Р·Р°РіСЂСѓР·РёС‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё -->
       </div>
     </section>
   </main>
@@ -70,8 +70,8 @@
   <footer class="container footer">
     <div class="footer-content">
       <div class="footer-left">
-        <div data-translate="footer.copyright">&copy; Natafit — все права защищены</div>
-        <div class="small">Демо версия</div>
+        <div data-translate="footer.copyright">&copy; Natafit вЂ” РІСЃРµ РїСЂР°РІР° Р·Р°С‰РёС‰РµРЅС‹</div>
+        <div class="small">Р”РµРјРѕ РІРµСЂСЃРёСЏ</div>
         <div class="small">
           <a href="impressum.html" style="color: var(--accent1); text-decoration: none;">Impressum</a> | 
           <a href="datenschutz.html" style="color: var(--accent1); text-decoration: none;">Datenschutz</a>
@@ -83,7 +83,7 @@
   <script src="js/translations.js?v=2"></script>
   <script src="js/theme.js"></script>
   <script>
-    // Простая загрузка расписания
+    // РџСЂРѕСЃС‚Р°СЏ Р·Р°РіСЂСѓР·РєР° СЂР°СЃРїРёСЃР°РЅРёСЏ
     function loadSchedule() {
       const schedule = JSON.parse(localStorage.getItem('schedule')) || { weeks: [] };
       const grid = document.getElementById('scheduleGrid');
@@ -127,7 +127,7 @@
                     <div>
                       <div style="font-size:20px;font-weight:bold;color:var(--text)">${slot.time}</div>
                       <div style="font-size:14px;color:var(--muted);margin-top:4px">
-                        ${isBooked ? '❌ ' + bookedText : '✅ ' + availableText}
+                        ${isBooked ? 'вќЊ ' + bookedText : 'вњ… ' + availableText}
                       </div>
                     </div>
                   </div>

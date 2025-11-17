@@ -9,8 +9,8 @@
   const currentTheme = localStorage.getItem('theme') || 'light';
   htmlElement.setAttribute('data-theme', currentTheme);
   
-  // Check for saved language preference or default to 'ru'
-  const currentLang = localStorage.getItem('language') || 'ru';
+  // Check for saved language preference or default to 'en'
+  const currentLang = localStorage.getItem('language') || 'en';
   htmlElement.setAttribute('lang', currentLang);
   if (langSelect) {
     langSelect.value = currentLang;
@@ -29,7 +29,7 @@
       htmlElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       
-      const lang = localStorage.getItem('language') || 'ru';
+      const lang = localStorage.getItem('language') || 'en';
       updateThemeText(newTheme, lang);
     });
   }
