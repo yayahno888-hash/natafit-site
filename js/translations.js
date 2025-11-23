@@ -86,7 +86,12 @@ const translations = {
     },
     footer: {
       copyright: "Natafit — все права защищены",
-      phone: "Тел: +7 (xxx) xxx-xx-xx"
+      phone: "Тел: +7 (xxx) xxx-xx-xx",
+      demoVersion: "Демо версия"
+    },
+    demo: {
+      version: "Это демо-версия",
+      workingVersion: "В рабочей версии здесь будут активные ссылки"
     },
     theme: {
       light: "Светлая",
@@ -354,7 +359,12 @@ const translations = {
     },
     footer: {
       copyright: "Natafit — alle Rechte vorbehalten",
-      phone: "Tel: +7 (xxx) xxx-xx-xx"
+      phone: "Tel: +7 (xxx) xxx-xx-xx",
+      demoVersion: "Demo-Version"
+    },
+    demo: {
+      version: "Dies ist eine Demo-Version",
+      workingVersion: "Die Arbeitsversion wird hier aktive Links haben"
     },
     theme: {
       light: "Hell",
