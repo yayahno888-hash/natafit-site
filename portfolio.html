@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yahya — Web Developer Portfolio</title>
+    
+    <!-- SEO -->
+    <meta name="description" content="15-year-old web developer from Rostock, Germany. HTML5, CSS3, JavaScript. Building responsive, multilingual websites. Seeking Fachinformatiker Ausbildung in Hamburg.">
+    <meta name="keywords" content="web developer, Yahya, Rostock, Hamburg, Ausbildung, Fachinformatiker, HTML, CSS, JavaScript, portfolio, freelance web developer">
+    <meta name="author" content="Yahya">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Yahya — Web Developer Portfolio">
+    <meta property="og:description" content="15-year-old web developer. Building responsive, multilingual websites. Available for freelance projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yayahno888-hash.github.io/my-portfolio/">
+    
+    <style>
+        :root {
+            --bg: #0f1724;
+            --card: #1a2436;
+            --accent: #FF7A59;
+            --accent2: #FFB86B;
+            --text: #F7FAFC;
+            --muted: #B8C0CC;
+            --radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 48px;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 24px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        
+        .hero .stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 48px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+        
+        /* Section */
+        section {
+            padding: 80px 0;
+        }
+        
+        h2 {
+            font-size: 36px;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+        
+        /* About */
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            font-size: 18px;
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .skill-card {
+            background: var(--card);
+            padding: 32px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(255, 122, 89, 0.2);
+        }
+        
+        .skill-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .skill-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .skill-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .project-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+        
+        .project-content {
+            padding: 24px;
+        }
+        
+        .project-content h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .project-content p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .tag {
+            background: rgba(255, 122, 89, 0.2);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #ff8f6f;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        /* Contact */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-content p {
+            font-size: 18px;
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--card);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s;
+        }
+        
+        .contact-link:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 32px 0;
+            text-align: center;
+            color: var(--muted);
+            margin-top: 80px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .hero .stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Yahya</a>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Web Developer</h1>
+            <p>15-year-old developer from Rostock, Germany. Building responsive, multilingual websites with clean code. Currently seeking Ausbildung as Fachinformatiker Anwendungsentwicklung.</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">2+</div>
+                    <div class="stat-label">Live Projects</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Languages</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Responsive</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>Hi! I'm Yahya, a 15-year-old web developer passionate about creating modern, user-friendly websites. I specialize in building responsive designs with clean, maintainable code.</p>
+                <p>I'm currently based in Rostock and learning web development independently through projects and practice. My goal is to start an Ausbildung as Fachinformatiker Anwendungsentwicklung in Hamburg in 2026.</p>
+                <p>I build websites from scratch without frameworks, focusing on performance, accessibility, and user experience. Every project teaches me something new about design, code architecture, and problem-solving.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Frontend Development</h3>
+                    <p>HTML5, CSS3, JavaScript (ES6+), Responsive Design, Mobile-First</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🌍</div>
+                    <h3>Multilingual Sites</h3>
+                    <p>Building translation systems, i18n, language switching, locale management</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🌓</div>
+                    <h3>Theme Systems</h3>
+                    <p>Dark/light themes, CSS variables, localStorage, smooth transitions</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Mobile-first approach, flexible layouts, touch-friendly interfaces</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">♿</div>
+                    <h3>Accessibility</h3>
+                    <p>ARIA labels, semantic HTML, keyboard navigation, WCAG standards</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3>Performance</h3>
+                    <p>Optimized code, fast loading, minimal dependencies, clean architecture</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">💪</div>
+                    <div class="project-content">
+                        <h3>Natafit — Fitness Website</h3>
+                        <p>Complete fitness training website with multilingual support (EN/DE/RU), dark theme toggle, contact forms, and responsive design.</p>
+                        
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">i18n</span>
+                            <span class="tag">Dark Theme</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="https://yayahno888-hash.github.io/natafit-site/" class="btn btn-primary" target="_blank">Live Demo</a>
+                            <a href="https://github.com/yayahno888-hash/natafit-site" class="btn btn-secondary" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">👤</div>
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+                        <p>Personal portfolio showcasing web development skills and projects. Clean design, smooth animations, and professional presentation.</p>
+                        
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Portfolio</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">You're Here!</a>
+                            <a href="https://github.com/yayahno888-hash" class="btn btn-secondary" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>I'm available for freelance web development projects. Looking for a modern website for your business? Let's talk!</p>
+                <p>Also actively seeking Ausbildung opportunities as Fachinformatiker Anwendungsentwicklung in Hamburg (start September 2026).</p>
+                
+                <div class="contact-links">
+                    <a href="https://github.com/yayahno888-hash" class="contact-link" target="_blank">
+                        <span>📦</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:your-email@example.com" class="contact-link">
+                        <span>📧</span>
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Yahya. Built from scratch with HTML, CSS, and JavaScript.</p>
+            <p style="margin-top: 8px; font-size: 14px;">Rostock, Germany 🇩🇪</p>
+        </div>
+    </footer>
+</body>
+</html>
